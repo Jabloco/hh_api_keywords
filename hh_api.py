@@ -1,3 +1,4 @@
+
 # Библиотека для работы с HTTP-запросами. Будем использовать ее для обращения к API HH
 
 import requests
@@ -31,34 +32,39 @@ def getPage(page = 0):
     req.close()
     return data
 
-
-def vacancy_detail(url_list):
-
-    """
-    Функция для создания списка вакансий с детализацией
-    Аргументы:
-        url_list - список ссылок на вакансии
-    """
-
-    vacancy_detail_list = []
-    for url in url_list:
-        req = requests.get(url)
-        data = json.loads(req.content.decode())
-        req.close()
-        vacancy_detail_list.append(data)
-    return vacancy_detail_list
-
-def remote_symbol(s):
+def remote_symbol(input_str):
     """
     Функция удаления тэгов и знаков препинания.
     Аргументы:
         s - строка
     """
-    symbol_lst = ['<p>', '</p>', '<li>', '</li>', '<ul>', '</ul>', '<em>', '</em>', '<strong>', '</strong>', '(', ')', ',', '.', ';', ':']
-
+    symbol_lst = ['<p>', '</p>', '<li>', '</li>', '<ul>', '</ul>', '<em>', '</em>', '<strong>', '</strong>', '<br />','(', ')', ',', '.', ';', ':']
+    
     for symbol in symbol_lst:
-        s = s.replace(symbol, '')
-    return s
+        input_str = input_str.lower().replace(symbol, ' ')
+    return input_str
+
+def vacancys_details(url_list):
+
+    """
+    Функция возвращает список всех слов в description и значений в key_skills
+    Аргументы:
+        url_list - список ссылок на вакансии
+    """
+
+    descriptions_list = []
+    for url in url_list:
+        req = requests.get(url)
+        data = json.loads(req.content.decode())
+        req.close()
+        descriptions_list.extend(remote_symbol(data['description']).split())
+        # 'key_skills': [{'name': 'Python'}, {'name': 'Linux'}, {'name': 'SQL'}, {'name': 'Git'}, {'name': 'Django Framework'}]
+        for skill in data['key_skills']:
+            descriptions_list.append(skill['name'])
+
+    return descriptions_list
+
+
 
     
 # получаем список ссылок на вакансии
@@ -83,11 +89,11 @@ for page in range(1):
     
     time.sleep(0.25) # Необязательная задержка, но чтобы не нагружать сервисы hh, оставим. 5 сек мы может подождать
 
-print(url_list)
+descriptions, skills = vacancys_details(url_list)
 
-print(vacancy_detail(url_list)[0].keys())
-print(vacancy_detail(url_list)[0]['description'])
-print(vacancy_detail(url_list)[0]['key_skills'])
+print(skills)
+print()
+print(descriptions)
 
 
 
