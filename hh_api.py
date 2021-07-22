@@ -85,6 +85,9 @@ for page in range(1):
 
 print(url_list)
 
+print(vacancy_detail(url_list)[0].keys())
 print(vacancy_detail(url_list)[0]['description'])
+print(vacancy_detail(url_list)[0]['key_skills'])
+
 
 
