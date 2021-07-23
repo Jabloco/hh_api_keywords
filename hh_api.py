@@ -1,30 +1,21 @@
 
-# Библиотека для работы с HTTP-запросами. Будем использовать ее для обращения к API HH
-
 import requests
- 
-# Пакет для удобной работы с данными в формате json
 import json
- 
-# Модуль для работы со значением времени
 import time
- 
-# Модуль для работы с операционной системой. Будем использовать для работы с файлами
-# import os
- 
-  
+from string import ascii_letters
+
+
 def getPage(page = 0):
     """
     Создаем функцию для получения страницы со списком вакансий.
     Аргументы:
         page - Индекс страницы, начинается с 0. Значение по умолчанию 0, т.е. первая страница
     """
-     
-    # Справочник для параметров GET-запроса
+    # Словарь для параметров GET-запроса
     params = {
         'text': 'NAME:python junior', # Текст фильтра. В имени должно быть слово "Аналитик"
         'page': page, # Индекс страницы поиска на HH
-        'per_page': 2 # Кол-во вакансий на 1 странице
+        'per_page': 100 # Кол-во вакансий на 1 странице
     }
      
     req = requests.get('https://api.hh.ru/vacancies', params) # Посылаем запрос к API
@@ -51,49 +42,61 @@ def vacancys_details(url_list):
     Аргументы:
         url_list - список ссылок на вакансии
     """
-
     descriptions_list = []
     for url in url_list:
         req = requests.get(url)
+        # write_to_file(req.content.decode(), 'vacancy_detail.json')
         data = json.loads(req.content.decode())
         req.close()
         descriptions_list.extend(remote_symbol(data['description']).split())
+        # Пример поля key_skills
         # 'key_skills': [{'name': 'Python'}, {'name': 'Linux'}, {'name': 'SQL'}, {'name': 'Git'}, {'name': 'Django Framework'}]
         for skill in data['key_skills']:
             descriptions_list.append(skill['name'])
 
     return descriptions_list
 
+def write_to_file(input_str, file_name = 'vacancy.json'):
+    """
+    Функция записи в файл.
+    Аргументы:
+        input_str - строка которую пишем в файл
+        file_name - имя файла
 
+    """
+    with open(file_name, 'w', encoding='utf8') as w:
+        w.write(input_str)
 
-    
+def select_latin_words(input_lst):
+    latin_words_dict = {}
+    for elem in input_lst:
+        for symb in elem:
+            if symb in ascii_letters:
+                flag = True
+            else:
+                flag = False
+                break
+        if flag:
+            if elem not in latin_words_dict.keys():
+                latin_words_dict[elem] = 1
+            else:
+                latin_words_dict[elem] += 1
+    return latin_words_dict
+
 # получаем список ссылок на вакансии
-url_list = []
-for page in range(1):
-
-    # ****** Запись сроки ответа в файл для разбора структуры json
-    # js = getPage(page)
-    # with open('hh_vac', 'w', encoding='utf8') as w:
-    #     w.write(js)
-    # *****
+for page in range(20):
+    js_str = getPage(page) #получаем ответ в виде json - файла
+    # write_to_file(js_str) # Запись строки ответа в файл для разбора структуры json
+    js = json.loads(js_str) # Преобразуем текст ответа запроса в словарь Python
     
-    js = json.loads(getPage(page)) # Преобразуем текст ответа запроса в словарь Python
-    
-    for i in range(len(js['items'])):
-        url_list.append(js['items'][i]['url'])
-
+    url_list = [js['items'][i]['url'] for i in range(len(js['items']))] # добавляем url в список ссылок
     
     if (js['pages'] - page) <= 1: # Проверка на последнюю страницу если вакансий меньше чем в диапазоне цикла
         break
-     
-    
+
     time.sleep(0.25) # Необязательная задержка, но чтобы не нагружать сервисы hh, оставим. 5 сек мы может подождать
 
-descriptions, skills = vacancys_details(url_list)
-
-print(skills)
-print()
-print(descriptions)
-
+latin_words = select_latin_words(vacancys_details(url_list))
+print(*sorted(latin_words.items(), key=lambda x:x[1], reverse=True), sep='\n')
 
 

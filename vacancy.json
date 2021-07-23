@@ -1,0 +1,180 @@
+{
+    "items": [
+        {
+            "id": "46420684",
+            "premium": false,
+            "name": "Junior Python Developer",
+            "department": null,
+            "has_test": false,
+            "response_letter_required": false,
+            "area": {
+                "id": "1",
+                "name": "Москва",
+                "url": "https://api.hh.ru/areas/1"
+            },
+            "salary": {
+                "from": 100000,
+                "to": null,
+                "currency": "RUR",
+                "gross": false
+            },
+            "type": {
+                "id": "open",
+                "name": "Открытая"
+            },
+            "address": {
+                "city": "Москва",
+                "street": "Новодмитровская улица",
+                "building": "2к1",
+                "description": null,
+                "lat": 55.804936,
+                "lng": 37.589922,
+                "raw": "Москва, Новодмитровская улица, 2к1",
+                "metro": null,
+                "metro_stations": [],
+                "id": "2287685"
+            },
+            "response_url": null,
+            "sort_point_distance": null,
+            "published_at": "2021-07-21T15:30:18+0300",
+            "created_at": "2021-07-21T15:30:18+0300",
+            "archived": false,
+            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=46420684",
+            "insider_interview": null,
+            "url": "https://api.hh.ru/vacancies/46420684?host=hh.ru",
+            "alternate_url": "https://hh.ru/vacancy/46420684",
+            "relations": [],
+            "employer": {
+                "id": "790022",
+                "name": "Admitad",
+                "url": "https://api.hh.ru/employers/790022",
+                "alternate_url": "https://hh.ru/employer/790022",
+                "logo_urls": {
+                    "240": "https://hhcdn.ru/employer-logo/2799756.jpeg",
+                    "90": "https://hhcdn.ru/employer-logo/2799755.jpeg",
+                    "original": "https://hhcdn.ru/employer-logo-original/589625.jpg"
+                },
+                "vacancies_url": "https://api.hh.ru/vacancies?employer_id=790022",
+                "trusted": true
+            },
+            "snippet": {
+                "requirement": "Опыт в коммерческой разработке от полугода. Знание Python 3. Опыт работы с Django. Опыт работы с реляционными БД (PostgreSQL, raw...",
+                "responsibility": "Разработкой backend составляющей бота для автоматизации коммуникаций. Автоматизацией аналитики для инстаграм и тик-ток. Разработкой внутренней CRM по сбору данных..."
+            },
+            "contacts": null,
+            "schedule": {
+                "id": "fullDay",
+                "name": "Полный день"
+            },
+            "working_days": [],
+            "working_time_intervals": [],
+            "working_time_modes": [],
+            "accept_temporary": false
+        },
+        {
+            "id": "46391520",
+            "premium": false,
+            "name": "Junior Python Developer",
+            "department": null,
+            "has_test": false,
+            "response_letter_required": false,
+            "area": {
+                "id": "1",
+                "name": "Москва",
+                "url": "https://api.hh.ru/areas/1"
+            },
+            "salary": null,
+            "type": {
+                "id": "open",
+                "name": "Открытая"
+            },
+            "address": {
+                "city": "Москва",
+                "street": "Большая Грузинская улица",
+                "building": "61с2",
+                "description": null,
+                "lat": 55.772386,
+                "lng": 37.584478,
+                "raw": "Москва, Большая Грузинская улица, 61с2",
+                "metro": {
+                    "station_name": "Белорусская",
+                    "line_name": "Замоскворецкая",
+                    "station_id": "2.19",
+                    "line_id": "2",
+                    "lat": 55.777439,
+                    "lng": 37.582107
+                },
+                "metro_stations": [
+                    {
+                        "station_name": "Белорусская",
+                        "line_name": "Замоскворецкая",
+                        "station_id": "2.19",
+                        "line_id": "2",
+                        "lat": 55.777439,
+                        "lng": 37.582107
+                    },
+                    {
+                        "station_name": "Белорусская",
+                        "line_name": "Кольцевая",
+                        "station_id": "5.20",
+                        "line_id": "5",
+                        "lat": 55.775179,
+                        "lng": 37.582303
+                    },
+                    {
+                        "station_name": "Маяковская",
+                        "line_name": "Замоскворецкая",
+                        "station_id": "2.80",
+                        "line_id": "2",
+                        "lat": 55.769808,
+                        "lng": 37.596192
+                    }
+                ],
+                "id": "702858"
+            },
+            "response_url": null,
+            "sort_point_distance": null,
+            "published_at": "2021-07-20T19:15:12+0300",
+            "created_at": "2021-07-20T19:15:12+0300",
+            "archived": false,
+            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=46391520",
+            "insider_interview": null,
+            "url": "https://api.hh.ru/vacancies/46391520?host=hh.ru",
+            "alternate_url": "https://hh.ru/vacancy/46391520",
+            "relations": [],
+            "employer": {
+                "id": "2328032",
+                "name": "НТехЛаб",
+                "url": "https://api.hh.ru/employers/2328032",
+                "alternate_url": "https://hh.ru/employer/2328032",
+                "logo_urls": {
+                    "240": "https://hhcdn.ru/employer-logo/2935705.png",
+                    "90": "https://hhcdn.ru/employer-logo/2935704.png",
+                    "original": "https://hhcdn.ru/employer-logo-original/623638.png"
+                },
+                "vacancies_url": "https://api.hh.ru/vacancies?employer_id=2328032",
+                "trusted": true
+            },
+            "snippet": {
+                "requirement": "Желание учиться самостоятельно, пробовать новое, предлагать идеи и общаться с коллегами. Хорошие базовые знания в Computer Science: операционные системы (мы...",
+                "responsibility": "Много учиться у коллег и самостоятельно. Участвовать в разработке основного продукта компании на Python. Улучшать кодовую базу, CI/CD, писать..."
+            },
+            "contacts": null,
+            "schedule": {
+                "id": "fullDay",
+                "name": "Полный день"
+            },
+            "working_days": [],
+            "working_time_intervals": [],
+            "working_time_modes": [],
+            "accept_temporary": false
+        }
+    ],
+    "found": 85,
+    "pages": 43,
+    "per_page": 2,
+    "page": 0,
+    "clusters": null,
+    "arguments": null,
+    "alternate_url": "https://hh.ru/search/vacancy?enable_snippets=true&items_on_page=2&text=NAME%3Apython+junior"
+}
