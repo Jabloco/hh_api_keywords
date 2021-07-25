@@ -1,0 +1,10 @@
+https://api.hh.ru/vacancies/45468773?host=hh.ru
+https://api.hh.ru/vacancies/45766856?host=hh.ru
+https://api.hh.ru/vacancies/46162014?host=hh.ru
+https://api.hh.ru/vacancies/46095598?host=hh.ru
+https://api.hh.ru/vacancies/46356805?host=hh.ru
+https://api.hh.ru/vacancies/46424978?host=hh.ru
+https://api.hh.ru/vacancies/46019826?host=hh.ru
+https://api.hh.ru/vacancies/45747782?host=hh.ru
+https://api.hh.ru/vacancies/45809010?host=hh.ru
+https://api.hh.ru/vacancies/46407611?host=hh.ru
